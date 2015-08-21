@@ -95,8 +95,8 @@ g_legend <- function(a.gplot){
 }
 
 plot.sim.spikes<-function(spike.train, beg, end) {
-  plot( c(beg, end), c(0,1), type='n', bty='n', yaxt="n", xaxt="n", xlab="", main="", ylab="")
+  plot( c(beg, end), c(-0.1,1), type='n', bty='n', yaxt="n", xaxt="n", xlab="", main="", ylab="")
   n<-length(spike.train)
   ys<-numeric(n)
-  segments(spike.train, ys, spike.train, ys+0.8, lwd=0.2) 
+  segments(spike.train, ys, spike.train, ys+0.8, lwd=0.3) 
 }
