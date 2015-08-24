@@ -3,7 +3,7 @@
 eval.method<-function(spike.train, method, beg.true, end.true, cutoff=NULL) {
   bursts <- switch(method, mi = MI.method(spike.train), 
                    ps = PS.method.thresh(spike.train, cutoff), logisi = logisi.method(spike.train),
-                   rs = RS.method(spike.train, cutoff), rgs=RGS.method(spike.train), hsmm=HSMM.method(spike.train, cutoff), 
+                   rs = RS.method(spike.train, cutoff), rgs=RGS.method(spike.train, thresh=cutoff), hsmm=HSMM.method(spike.train, cutoff),
                    cma=CMA.method(spike.train), hennig=hennig.method(spike.train), logisi.pasq=logisi.pasq.method2(spike.train), clust=dbscan.cluster(spike.train, cutoff), clust2=cluster.method(spike.train), stop(method, " : no such method for burst analysis"))
   if (class(bursts)=="list") {
     result<-lapply(bursts, function(x) eval.stats(spike.train, beg.true, end.true, x))
