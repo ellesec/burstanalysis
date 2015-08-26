@@ -62,7 +62,7 @@ logisi.pasq.method<-function(spike.train){
 }
 
 logisi.pasq.method2<-function(spike.train){
-  if (length(spike.train)>9) {
+  if (length(spike.train)>3) {
     isi.low <- logisi.break.calc(spike.train)
     if (is.null(isi.low) ){
       logisi.par <- list(min.ibi=0,   min.durn=0, min.spikes=3,
