@@ -1,0 +1,232 @@
+\begin{thebibliography}{10}
+
+\bibitem{Bakkum2013}
+D.~J. Bakkum, M.~Radivojevic, U.~Frey, F.~Franke, A.~Hierlemann, and
+  H.~Takahashi.
+\newblock {Parameters for burst detection.}
+\newblock {\em Front. Comput. Neurosci.}, 7:193, 2013.
+
+\bibitem{Breier2008}
+J.~M. Breier, N.~M. Radio, W.~R. Mundy, and T.~J. Shafer.
+\newblock {Development of a high-throughput screening assay for chemical
+  effects on proliferation and viability of immortalized human neural
+  progenitor cells}.
+\newblock {\em Toxicol. Sci.}, 105(1):119--133, 2008.
+
+\bibitem{Charlesworth2015}
+P.~Charlesworth, E.~Cotterill, A.~Morton, S.~G. Grant, and S.~J. Eglen.
+\newblock {Quantitative differences in developmental profiles of spontaneous
+  activity in cortical and hippocampal cultures}.
+\newblock {\em Neural Dev.}, 10:1--10, 2015.
+
+\bibitem{Charlesworth2016}
+P.~Charlesworth, A.~Morton, S.~J. Eglen, N.~H. Komiyama, and S.~G. Grant.
+\newblock {Canalization of genetic and pharmacological perturbations in
+  developing primary neuronal activity patterns}.
+\newblock {\em Neuropharmacology}, 100:47--55, 2016.
+
+\bibitem{Chen2009}
+L.~Chen, Y.~Deng, W.~Luo, Z.~Wang, and S.~Zeng.
+\newblock {Detection of bursts in neuronal spike trains by the mean inter-spike
+  interval method}.
+\newblock {\em Prog. Nat. Sci.}, 19(2):229--235, 2009.
+
+\bibitem{Chiappalone2005}
+M.~Chiappalone, A.~Novellino, I.~Vajda, A.~Vato, S.~Martinoia, and J.~van Pelt.
+\newblock {Burst detection algorithms for the analysis of spatio-temporal
+  patterns in cortical networks of neurons}.
+\newblock {\em Neurocomputing}, 65-66:653--662, 2005.
+
+\bibitem{Cocatre-Zilgien1992}
+J.~Cocatre-Zilgien and F.~Delcomyn.
+\newblock {Identification of bursts in spike trains}.
+\newblock {\em J. Neurosci. Methods}, 41(1):19--30, 1992.
+
+\bibitem{Demas2003}
+J.~Demas, S.~J. Eglen, and R.~O.~L. Wong.
+\newblock {Developmental loss of synchronous spontaneous activity in the mouse
+  retina is independent of visual experience.}
+\newblock {\em J. Neurosci.}, 23(7):2851--2860, 2003.
+
+\bibitem{Eglen2014a}
+S.~Eglen, M.~Weeks, M.~Jessop, and J.~Simonotto.
+\newblock {A data repository and analysis framework for spontaneous neural
+  activity recordings in developing retina}.
+\newblock {\em Gigascience}, 3(3), nov 2014.
+
+\bibitem{Eisenman2015}
+L.~N. Eisenman, C.~M. Emnett, J.~Mohan, C.~F. Zorumski, and S.~Mennerick.
+\newblock {Quantification of bursting and synchrony in cultured hippocampal
+  neurons}.
+\newblock {\em J. Neurophysiol.}, 114:1059--1071, 2015.
+
+\bibitem{Gourevitch2007}
+B.~Gour\'{e}vitch and J.~J. Eggermont.
+\newblock {A nonparametric approach for detection of bursts in spike trains.}
+\newblock {\em J. Neurosci. Methods}, 160(2):349--58, 2007.
+
+\bibitem{Heikkila2009}
+T.~J. Heikkil\"{a}, L.~Yl\"{a}-Outinen, R.~S. {Tanskanen, Jarno M A
+  Lappalainen}, H.~Skottman, R.~Suuronen, J.~E. Mikkonen, J.~A.~K. Hyttinen,
+  and S.~Narkilahti.
+\newblock {Human embryonic stem cell-derived neuronal cells form spontaneously
+  active neuronal networks in vitro.}
+\newblock {\em Exp. Neurol.}, 218(1):109--16, 2009.
+
+\bibitem{Hennig2011}
+M.~H. Hennig, J.~Grady, J.~van Coppenhagen, and E.~Sernagor.
+\newblock {Age-dependent homeostatic plasticity of GABAergic signaling in
+  developing retinal networks.}
+\newblock {\em J. Neurosci.}, 31(34):12159--64, 2011.
+
+\bibitem{Illes2007}
+S.~Illes, W.~Fleischer, M.~Siebler, H.-P. Hartung, and M.~Dihn\'{e}.
+\newblock {Development and pharmacological modulation of embryonic stem
+  cell-derived neuronal network activity.}
+\newblock {\em Exp. Neurol.}, 207:171--176, 2007.
+
+\bibitem{Kaneoke1996}
+Y.~Kaneoke and J.~Vitek.
+\newblock {Burst and oscillation as disparate neuronal properties}.
+\newblock {\em J. Neurosci. Methods}, 68(2):211--223, 1996.
+
+\bibitem{Kapucu2012}
+F.~E. Kapucu, J.~M.~A. Tanskanen, J.~E. Mikkonen, L.~Yl\"{a}-Outinen,
+  S.~Narkilahti, and J.~A.~K. Hyttinen.
+\newblock {Burst analysis tool for developing neuronal networks exhibiting
+  highly varying action potential dynamics.}
+\newblock {\em Front. Comput. Neurosci.}, 6:38, 2012.
+
+\bibitem{Ko2012}
+D.~Ko, C.~J. Wilson, C.~J. Lobb, and C.~A. Paladini.
+\newblock {Detection of bursts and pauses in spike trains.}
+\newblock {\em J. Neurosci. Methods}, 211(1):145--58, 2012.
+
+\bibitem{Legendy1985}
+C.~R. Leg\'{e}ndy and M.~Salcman.
+\newblock {Bursts and recurrences of bursts in the spike trains of
+  spontaneously active striate cortex neurons.}
+\newblock {\em J. Neurophysiol.}, 53(4):926--39, 1985.
+
+\bibitem{Lisman1997}
+J.~E. Lisman.
+\newblock {Bursts as a unit of neural information: Making unreliable synapses
+  reliable}.
+\newblock {\em Trends Neurosci.}, 20(1):38--43, 1997.
+
+\bibitem{Maccione2014}
+A.~Maccione, M.~H. Hennig, M.~Gandolfo, O.~Muthmann, J.~van Coppenhagen, S.~J.
+  Eglen, L.~Berdondini, and E.~Sernagor.
+\newblock {Following the ontogeny of retinal waves: pan-retinal recordings of
+  population dynamics in the neonatal mouse.}
+\newblock {\em J. Physiol.}, 592(7):1545--63, 2014.
+
+\bibitem{Maeda1995}
+E.~Maeda, H.~P. Robinson, and A.~Kawana.
+\newblock {The mechanisms of generation and propagation of synchronized
+  bursting in developing networks of cortical neurons.}
+\newblock {\em J. Neurosci.}, 15(10):6834--6845, 1995.
+
+\bibitem{Martens2014}
+M.~B. Martens, M.~Chiappalone, D.~Schubert, and P.~H.~E. Tiesinga.
+\newblock {Separating burst from background spikes in multichannel neuronal
+  recordings using return map analysis}.
+\newblock {\em Int. J. Neural Syst.}, 24(04):1450012, 2014.
+
+\bibitem{Mazzoni2007}
+A.~Mazzoni, F.~D. Broccard, E.~Garcia-Perez, P.~Bonifazi, M.~E. Ruaro, and
+  V.~Torre.
+\newblock {On the dynamics of the spontaneous activity in neuronal networks}.
+\newblock {\em PLoS One}, 2(5):e439, 2007.
+
+\bibitem{Mukai2003}
+Y.~Mukai, T.~Shiina, and Y.~Jimbo.
+\newblock {Continuous monitoring of developmental activity changes in cultured
+  cortical networks}.
+\newblock {\em Electr. Eng. Japan}, 145(4):28--37, 2003.
+
+\bibitem{NEmanual}
+{Nex Technologies}.
+\newblock {NeuroExplorer Manual 2014}.
+
+\bibitem{Pasquale2010}
+V.~Pasquale, S.~Martinoia, and M.~Chiappalone.
+\newblock {A self-adapting approach for the detection of bursts and network
+  bursts in neuronal cultures}.
+\newblock {\em J. Comput. Neurosci.}, 29(1-2):213--229, 2010.
+
+\bibitem{Pimashkin2011}
+A.~Pimashkin, I.~Kastalskiy, A.~Simonov, E.~Koryagina, I.~Mukhina, and
+  V.~Kazantsev.
+\newblock {Spiking signatures of spontaneous activity bursts in hippocampal
+  cultures}.
+\newblock {\em Front. Comput. Neurosci.}, 5:1--12, 2011.
+
+\bibitem{Selinger2007}
+J.~V. Selinger, N.~V. Kulagina, T.~J. O'Shaughnessy, W.~Ma, and J.~J.
+  Pancrazio.
+\newblock {Methods for characterizing interspike intervals and identifying
+  bursts in neuronal activity.}
+\newblock {\em J. Neurosci. Methods}, 162(1-2):64--71, 2007.
+
+\bibitem{Tam2002}
+D.~Tam.
+\newblock {An alternate burst analysis for detecting intra-burst firings based
+  on inter-burst periods}.
+\newblock {\em Neurocomputing}, 46:1155--1159, 2002.
+
+\bibitem{Tokdar2010}
+S.~Tokdar, P.~Xi, R.~C. Kelly, and R.~E. Kass.
+\newblock {Detection of bursts in extracellular spike trains using hidden
+  semi-Markov point process models.}
+\newblock {\em J. Comput. Neurosci.}, 29(1-2):203--12, 2010.
+
+\bibitem{Turnbull2005}
+L.~Turnbull, E.~Dian, and G.~Gross.
+\newblock {The string method of burst identification in neuronal spike trains.}
+\newblock {\em J. Neurosci. Methods}, 145(1-2):23--35, 2005.
+
+\bibitem{VanElburg2004}
+R.~A. van Elburg and A.~van Ooyen.
+\newblock {A new measure for bursting}.
+\newblock {\em Neurocomputing}, 58-60:497--502, 2004.
+
+\bibitem{Wagenaar2005}
+D.~Wagenaar, T.~DeMarse, and S.~Potter.
+\newblock Meabench: A toolset for multi-electrode data acquisition and on-line
+  analysis.
+\newblock In {\em Conference Proceedings. 2nd International IEEE EMBS
+  Conference on Neural Engineering, 2005}, pages 518--521, 2005.
+
+\bibitem{Wagenaar2006}
+D.~A. Wagenaar, J.~Pine, and S.~M. Potter.
+\newblock {An extremely rich repertoire of bursting patterns during the
+  development of cortical cultures.}
+\newblock {\em BMC Neurosci.}, 7:11, 2006.
+
+\bibitem{Weihberger2013}
+O.~Weihberger, S.~Okujeni, J.~E. Mikkonen, and U.~Egert.
+\newblock {Quantitative examination of stimulus-response relations in cortical
+  networks in vitro}.
+\newblock {\em J. Neurophysiol.}, 109(7):1764--1774, 2013.
+
+\bibitem{Weyand2001}
+T.~G. Weyand, M.~Boudreaux, and W.~Guido.
+\newblock {Burst and tonic response modes in thalamic neurons during sleep and
+  wakefulness.}
+\newblock {\em J. Neurophysiol.}, 85(3):1107--1118, 2001.
+
+\bibitem{Xia2003}
+Y.~Xia, K.~V. Gopal, and G.~W. Gross.
+\newblock {Differential acute effects of fluoxetine on frontal and auditory
+  cortex networks in vitro}.
+\newblock {\em Brain Res.}, 973(2):151--160, 2003.
+
+\bibitem{Yla-Outinen2010}
+L.~Yl\"{a}-Outinen, J.~Heikkil\"{a}, H.~Skottman, R.~Suuronen, R.~A\"{a}nismaa,
+  and S.~Narkilahti.
+\newblock {Human cell-based micro electrode array platform for studying
+  neurotoxicity.}
+\newblock {\em Front. Neuroeng.}, 3:1--9, 2010.
+
+\end{thebibliography}
