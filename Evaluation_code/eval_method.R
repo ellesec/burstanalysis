@@ -1,10 +1,10 @@
-#Calculate burst statistics from running method on a spike train. Input is spike train, method type, and cutoff for RS and HSMM
+#Compares detected bursts with 'ground truth' behaviour. Input is spike train, method type, true beginning and true end of bursts and threshold value
 #Output is statistics of bursting behaviours
 eval.method<-function(spike.train, method, beg.true, end.true, cutoff=NULL) {
   bursts <- switch(method, mi = MI.method(spike.train), 
-                   ps = PS.method.thresh(spike.train, cutoff), logisi = logisi.method(spike.train),
+                   ps = PS.method(spike.train, cutoff),
                    rs = RS.method(spike.train, cutoff), rgs=RGS.method(spike.train, thresh=cutoff), hsmm=HSMM.method(spike.train, cutoff),
-                   cma=CMA.method(spike.train), hennig=hennig.method(spike.train, cutoff), logisi.pasq=logisi.pasq.method2(spike.train), clust=dbscan.cluster(spike.train, cutoff), clust2=cluster.method(spike.train), stop(method, " : no such method for burst analysis"))
+                   cma=CMA.method(spike.train), hennig=hennig.method(spike.train, cutoff), logisi.pasq=logisi.pasq.method(spike.train, cutoff), stop(method, " : no such method for burst analysis"))
   if (class(bursts)=="list") {
     result<-lapply(bursts, function(x) eval.stats(spike.train, beg.true, end.true, x))
   } else {

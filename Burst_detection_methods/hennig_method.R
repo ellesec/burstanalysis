@@ -1,3 +1,4 @@
+#ISI Rank threshold method
 hennig.method<-function(st, cutoff.prob=0.05) {
   bursts<-NULL
   result<-NULL
@@ -9,16 +10,15 @@ hennig.method<-function(st, cutoff.prob=0.05) {
   st.length<-ceiling(max(st))
   spike.counts<-NULL
   for (i in 0:st.length-1) {
-    spike.counts[i+1]<-sum((st>=i)*(st<(i+1)))
+    spike.counts[i+1]<-sum((st>=i)*(st<(i+1))) #calculate spike count of 1s intervals
   }
-  sc.hist<-hist(spike.counts, nclass=200)
-  p.dist<-1-cumsum(sc.hist$counts/sum(sc.hist$counts))
+  sc.hist<-hist(spike.counts, nclass=200, plot=FALSE)
+  p.dist<-1-cumsum(sc.hist$counts/sum(sc.hist$counts)) 
   cutoff.indx<-sum(p.dist>cutoff.prob)
-  theta.c<-max(c(2, ceiling(sc.hist$mids[cutoff.indx])))
-  theta.c.off<-theta.c*0.5
-  isi.rel.rank<-isi.rank/max(isi.rank)
+  theta.c<-max(c(2, ceiling(sc.hist$mids[cutoff.indx]))) #set theta_C to value where probability of spike counts is equal to cutoff.index (default 0.05)
+  theta.c.end<-theta.c*0.5 #cutoff to end a burst
+  isi.rel.rank<-isi.rank/max(isi.rank) #calculate relative rank of each isi
   
-  #t<-st[2:length(st)]#Why two??
   t<-st
   j<-1
   burst.on<-0
@@ -30,15 +30,15 @@ hennig.method<-function(st, cutoff.prob=0.05) {
   burst.size<-NULL
   burst.beg<-NULL
   while (j<length(allisi)-theta.c) {
-    if (burst.on==0 && isi.rel.rank[j]<0.5) {
-      if (t[j+theta.c]<t[j]+dt){
+    if (burst.on==0 && isi.rel.rank[j]<0.5) { #burst begins when rank of isi<0.5
+      if (t[j+theta.c]<t[j]+dt){ 
         burst.on<-1
         burst.time[bc]<-t[j]
         burst.beg[bc]<-j
         brc<-j
       }
     } else if (burst.on==1) { 
-      if (t[j+theta.c.off]>t[j]+dt) {
+      if (t[j+theta.c.end]>t[j]+dt) {
         burst.end[bc]<-t[j]
         burst.dur[bc]<-t[j]-burst.time[bc]
         burst.size[bc]<-j-brc

@@ -1,5 +1,5 @@
 HSMM.method <- function(spike.train, cutoff, scan = c(5,25), dur.shape = c(1, 1)){
-  
+
   # Load and execute burstHSMM package
   require(burstHSMM)
   y <- diff(spike.train)

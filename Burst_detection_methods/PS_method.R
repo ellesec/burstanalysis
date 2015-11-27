@@ -1,66 +1,19 @@
-PS.method.array<-function(s, si.thresh=5) {
-  bursts<-spikes.to.bursts(s, "si")
-  
-  rearr.fn<-function( num, si.thresh) {
-    burst<-bursts[[num]]
-    if (is.null(dim(burst))){
-      result<-NA
-    } else {
-    st<-s$spikes[[num]]
-    burst.rem<-which(burst[,"SI"]<si.thresh)
-    if (length(burst.rem)) {
-    burst<-burst[-burst.rem,]
-    }
-  beg<-burst[,"beg"]
-  len<-burst[,"len"]
-  N.burst<-length(beg)
-  end<-beg+len-1
-  IBI<-c(NA, st[beg[-1]]-st[end[-N.burst]])
-  result<-cbind(beg=beg, end=end, IBI=IBI, len=len, durn=burst[,"durn"], mean.isis=burst[,"mean.isis"], SI=burst[,"SI"])
-  rownames(result)<-NULL
-    }
-result  
-    }
-
-lapply(1:s$NCells, function(x) rearr.fn(x, si.thresh))
-
-}
-
-
+##PS method
 
 PS.method<-function(spike.train, si.thresh=5) {
-  burst <- si.find.bursts(spike.train)
-  if (is.null(dim(burst))){
-    result<-NA
-  } else {
-    burst.rem<-which(burst[,"SI"]<si.thresh)
-    if (length(burst.rem)) {
-      burst<-burst[-burst.rem,]
-    }
-    beg<-burst[,"beg"]
-    len<-burst[,"len"]
-    N.burst<-length(beg)
-    end<-beg+len-1
-    IBI<-c(NA, spike.train[beg[-1]]-spike.train[end[-N.burst]])
-    result<-cbind(beg=beg, end=end, IBI=IBI, len=len, durn=burst[,"durn"], mean.isis=burst[,"mean.isis"], SI=burst[,"SI"])
-    rownames(result)<-NULL
-}
-result
-}
-
-
-
-##Edited method
-
-PS.method.thresh<-function(spike.train, si.thresh=5) {
     si.thresh<-ifelse(is.null(si.thresh), 5, si.thresh)
-    burst <- si.find.bursts.thresh(spike.train, si.thresh)
+    burst <- si.find.bursts.thresh(spike.train)
     if (is.null(dim(burst))){
         result<-NA
     } else {
         burst.rem<-which(burst[,"SI"]<si.thresh)
         if (length(burst.rem)) {
             burst<-burst[-burst.rem,]
+        }
+        if (length(dim(burst))<1) {
+            burst<-data.frame(beg=burst[1], len=burst[2], SI=burst[3], durn=burst[4], mean.isis=burst[5])
+        } else if (dim(burst)[1]==0){
+            return(NA)
         }
         beg<-burst[,"beg"]
         len<-burst[,"len"]
@@ -76,7 +29,7 @@ PS.method.thresh<-function(spike.train, si.thresh=5) {
 
 
 
-si.find.bursts.thresh<- function (spikes, min.si, debug = FALSE)
+si.find.bursts.thresh<- function (spikes, debug = FALSE)
 {
     nspikes = length(spikes)
     mean.isi = mean(diff(spikes))
@@ -91,7 +44,7 @@ si.find.bursts.thresh<- function (spikes, min.si, debug = FALSE)
         if (((spikes[n + 1] - spikes[n]) < threshold) && ((spikes[n +
         2] - spikes[n + 1]) < threshold)) {
             res <- si.find.burst.thresh2(n, spikes, nspikes, mean.isi,
-            burst.isi.max, min.si, debug)
+            burst.isi.max, debug)
             if (is.na(res[1])) {
                 n <- n + 1
             }
@@ -123,7 +76,7 @@ si.find.bursts.thresh<- function (spikes, min.si, debug = FALSE)
 
 
 
-si.find.burst.thresh2<-function(n, spikes, nspikes, mean.isi, threshold=NULL, min.si,
+si.find.burst.thresh2<-function(n, spikes, nspikes, threshold=NULL, min.si,
 debug=FALSE) {
     ## Find a burst starting at spike N.
     ## Include a better phase 1.
@@ -219,27 +172,20 @@ debug=FALSE) {
     
     
     ## End of burst detection; accumulate result.
-    if ( s > min.si) {
-        
-        
-        ## compute the ISIs, and then the mean ISI.
-        
-        ## Fencepost issue: I is the number of spikes in the burst, so if
-        ## the first spike is N, the last spike is at N+I-1, not N+I.
-        isis = diff(spikes[n+(0:(i-1))])
-        mean.isis = mean(isis)
-        
-        durn = spikes[n+i-1] - spikes[n]
-        res <- c(n=n, i=i, s=s, durn=durn, mean.isis=mean.isis)
-        
-        if (debug)
-        print(res)
-        
-    } else {
-        ## burst did not have high enough SI.
-        res <- rep(NA, burst.info.len)
-    }
+    
+    
+    ## compute the ISIs, and then the mean ISI.
+    
+    ## Fencepost issue: I is the number of spikes in the burst, so if
+    ## the first spike is N, the last spike is at N+I-1, not N+I.
+    isis = diff(spikes[n+(0:(i-1))])
+    mean.isis = mean(isis)
+    
+    durn = spikes[n+i-1] - spikes[n]
+    res <- c(n=n, i=i, s=s, durn=durn, mean.isis=mean.isis)
+    
     ##browser()
     res
     
 }
+

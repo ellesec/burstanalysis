@@ -1,89 +1,32 @@
-logisi.method.array<-function(s){
-  logisi.par <- list(min.ibi=0.800,   min.durn=0.05, min.spikes=6,
-                     isi.low=0.02)
-  if (max(s$nspikes)>9) {
-    isi.low <- logisi.compute(s)$Locmin
-    if (!is.na(isi.low)){
-      logisi.par$isi.low <-isi.low
-    }
-    result<-lapply(s$spikes, logisi.find.burst)
-  } else {
-    result<-rep(list(NA), length(s$spikes))
-  }
-  result
-}
+library(pracma)
 
-logisi.method<-function(spike.train){
-  
-  logisi.par <- list(min.ibi=0,   min.durn=0, min.spikes=3,
-                     isi.low=0)
-  if (length(spike.train)>9){
-    isi.low <- logisi.compute.train(spike.train)$Locmin
-    if (!is.na(isi.low)){
-      logisi.par$isi.low <-isi.low
-    }
-    result<-logisi.find.burst2(spike.train, logisi.par)
-  } else {
-    result<-NA
-  }
-  result
-}
-
-
-logisi.pasq.method<-function(spike.train){
-  if (length(spike.train)>9) {
-    isi.low <- logisi.compute.train(spike.train)$Locmin
-    if (is.na(isi.low) ){
-      logisi.par <- list(min.ibi=0,   min.durn=0, min.spikes=3,
-                         isi.low=0.1)
-      result<-logisi.find.burst2(spike.train, logisi.par)
-    } else if (isi.low>0.1) {
-      logisi.par <- list(min.ibi=isi.low,   min.durn=0, min.spikes=3,
-                         isi.low=0.1)
-      bursts<-logisi.find.burst2(spike.train, logisi.par)
-      if (!is.na(bursts)[1]){
-        logisi.par2 <- list(min.ibi=0,   min.durn=0, min.spikes=3,
-                           isi.low=isi.low)
-        brs<-logisi.find.burst2(spike.train, logisi.par2)
-        result<-add.brs(bursts, brs, spike.train)
-      } else {
-        result<-bursts
-      }
-    } else {
-      logisi.par <- list(min.ibi=0,   min.durn=0, min.spikes=3,
-                         isi.low=isi.low)
-      result<-logisi.find.burst2(spike.train, logisi.par)
-    }
-    
-  } else {
-    result<-NA
-  }
-  result
-}
-
-logisi.pasq.method2<-function(spike.train){
+#Function to run logISI method
+logisi.pasq.method<-function(spike.train, cutoff=0.1){
+  cutoff<-ifelse(is.null(cutoff), 0.1, cutoff)
   if (length(spike.train)>3) {
-    isi.low <- logisi.break.calc(spike.train)
-    if (is.null(isi.low) ){
+      isi.low <- logisi.break.calc(spike.train, cutoff) #Calculates threshold as isi.low
+    if (is.null(isi.low) || isi.low>=1 ){
       logisi.par <- list(min.ibi=0,   min.durn=0, min.spikes=3,
-                         isi.low=0.1)
-      result<-logisi.find.burst2(spike.train, logisi.par)
-    } else if (isi.low>0.1) {
+      isi.low=cutoff) #If no value for isi.low found, or isi.low above 1 second, find bursts using threshold equal to cutoff (default 100ms)
+      result<-logisi.find.burst(spike.train, logisi.par)
+    } else if (isi.low<0) {
+      result<-NA
+    } else if (isi.low>cutoff & isi.low <1) {
       logisi.par <- list(min.ibi=isi.low,   min.durn=0, min.spikes=3,
-                         isi.low=0.1)
-      bursts<-logisi.find.burst2(spike.train, logisi.par)
+                         isi.low=cutoff) #If isi.low >cutoff, find bursts using threshold equal to cutoff (default 100ms)
+      bursts<-logisi.find.burst(spike.train, logisi.par)
       if (!is.na(bursts)[1]){
         logisi.par2 <- list(min.ibi=0,   min.durn=0, min.spikes=3,
-                            isi.low=isi.low)
-        brs<-logisi.find.burst2(spike.train, logisi.par2)
+        isi.low=isi.low) #If bursts have been found, add burst related spikes using threshold of isi.low
+        brs<-logisi.find.burst(spike.train, logisi.par2)
         result<-add.brs(bursts, brs, spike.train)
       } else {
         result<-bursts
       }
     } else {
       logisi.par <- list(min.ibi=0,   min.durn=0, min.spikes=3,
-                         isi.low=isi.low)
-      result<-logisi.find.burst2(spike.train, logisi.par)
+      isi.low=isi.low) #If isi.low<cutoff, find bursts using a threshold equal to isi.low
+      result<-logisi.find.burst(spike.train, logisi.par)
     }
     
   } else {
@@ -92,8 +35,100 @@ logisi.pasq.method2<-function(spike.train){
   result
 }
 
+#Finds peaks in logISI histogram
+get.peaks<-function(h, Pd=2, Th=0, Np=NULL){
+  m<-0
+  L<-length(h$density)
+  j<-0
+  Np<-ifelse(is.null(Np), L, Np)
+  pks<-NULL
+  locs<-NULL
+  void.th<-0.7
+  while((j<L)&&(m<Np)){
+    j<-j+1
+    endL<-max(1,j-Pd)
+    if (m>0 && j<min(c(locs[m]+Pd, L-1))){
+      j<-min(c(locs[m]+Pd, L-1))
+      endL<-j-Pd
+    }
+    endR<-min(L, j+Pd)
+    temp<-h$density[endL:endR]
+    aa<-which(j==endL:endR)
+    temp[aa]<--Inf
+    if (Pd>1){
+      idx1<-max(1, aa-2)
+      idx2<-min(aa+2, length(temp))
+      idx3<-max(1, aa-1)
+      idx4<-min(aa+1, length(temp))
+      if (sum((h$density[j]>(temp[c(1:idx1, idx2:length(temp))]+Th))==FALSE)==0 && sum((h$density[j]>(temp[idx3:idx4]))==FALSE)==0 && j!=1 && j!=L){
+        m<-m+1
+        pks[m]<-h$density[j]
+        locs[m]<-j
+      } } else if (sum((h$density[j]>(temp+Th))==FALSE)==0 ) {
+        m<-m+1
+        pks[m]<-h$density[j]
+        locs[m]<-j
+      }
+    
+  }
+  ret<-data.frame(pks=pks, locs=locs)
+}
 
-###CMA adapt
+#Function to find cutoff threshold.
+find.thresh<-function(h, ISITh=100){
+  void.th<-0.7
+  gp<-get.peaks(h)
+  num.peaks<-length(gp$pks)
+  pkx<-h$breaks[gp$locs]
+  intra.indx<-which(pkx<ISITh)
+  if(length(intra.indx)>=1){
+    max.intra<-max(gp$pks[intra.indx])
+    max.idx<-which.max(gp$pks[intra.indx])
+  } else {
+    return(-1000)
+  }
+  x1<-pkx[max.idx]
+  y1<-max.intra
+  locs1<-gp$locs[max.idx]
+  num.peaks.after.burst<-num.peaks-max.idx
+  if (num.peaks.after.burst==0){
+    return(NULL)
+  } else {
+    gp2<-gp[(max.idx+1):num.peaks,]
+    ymin<-sapply(gp2$locs, function(x) min(h$density[locs1:x]))
+    xmin<-sapply(gp2$locs, function(x) which.min(h$density[locs1:x]))+locs1-1
+    voidParameter<-1-(ymin/sqrt(y1*gp2$pks))
+  }
+  indxvoid<-suppressWarnings(min(which(voidParameter>=void.th)))
+  if(is.infinite(indxvoid)) {
+    flags<-c(1,0)
+    return(NULL)
+  } else {
+    ISImax<-h$breaks[xmin[indxvoid]]
+    return(ISImax)
+  }
+}
+
+#Calculates cutoff for burst detection
+logisi.break.calc<-function(st, cutoff){
+  isi<-diff(st)*1000
+  max.isi<-ceiling(log10(max(isi)))
+  isi<-isi[isi>=1]
+  br<-logspace(0, max.isi, 10*max.isi)
+  h<-hist(isi, breaks=br, plot=FALSE)
+  h$density<-h$counts/sum(h$counts)
+  h$density<-lowess(h$density, f=0.05)$y
+  thr<-find.thresh(h, cutoff*1000)
+  if(!is.null(thr)){
+    thr<-thr/1000
+  }
+  thr
+}
+
+
+
+
+###Function to add burst related spikes to edges of bursts
 add.brs<-function(bursts, brs, spike.train){
 is.between<-function(x,a,b){ betw<-0
                              if(x>=a &x<=b)
@@ -144,214 +179,8 @@ result
 }
 
 
-
-
-
-
-##Function to calculate cutoff for single train
-logisi.compute.train<-function(spike.train, min.nspikes = 10,
-                               breaks.max = 100,
-                               channel = ncells+1,
-                               span = 1, span.max = 50, Rat = 0.08, plot = FALSE)
-{
-  
-  ## N --> MIN.NSPIKES == minimum number of spikes in a channel.
-  ## br.max --> breaks.max
-  ## channel.
-  ## 
-  ## Given the spike data structure S,
-  ## compute the log ISI transform and return useful information.
-  
-  ## This function should be expanded to find the peaks in the
-  ## histogram either of each channel or of the grand average.
-  
-  h = list()                                                 # hist objects  
-  total.isi = NULL
-  ncells <- 1
-  nspikes<-length(spike.train)
-  if (plot){
-    par(mfrow=c(8,8), mar=c(3,3,1,1), ask=FALSE, oma=c(0,1.5,0,0))
-  }
-  
-  if (nspikes>= min.nspikes ) {
-    ## Channel has "enough" spikes for method.
-    total.isi = diff( spike.train ) 
-    B = sqrt(nspikes)
-    if (B > breaks.max){
-      B = breaks.max
-    }
-    if (plot){
-      title = sprintf("%d # %d", i, nspikes[i])
-      h[[i]] = hist(log(isi), br = B, main = title, xlab = "logisi")
-      abline(h = mean(h[[i]]$counts), col = 'blue')
-    } else{
-      h[[i]] = hist(log(isi), br = B, plot = FALSE)
-    }
-  } else {
-    ## insufficient spikes to compute ISI histogram.
-    if (plot){
-      title = sprintf("%d # %d", i, nspikes[i])
-      plot(1, type='n', main=title)
-    }
-  }
-  
-  ## The log histogram for the grand average.
-  B = sqrt(length(total.isi))
-  if (B > breaks.max){
-    B = breaks.max
-  }
-  if (plot){
-    last.h = hist(log(total.isi), br = B, main = "All", xlab = "logisi")                             
-    abline(h = mean(last.h$counts), col = 'red')
-  }else{
-    last.h = hist(log(total.isi), br = B, plot = FALSE) 
-  }
-  h[[ncells+1]] = last.h
-  counts = h[[channel]]$counts
-  breaks = h[[channel]]$breaks
-  
-  if (plot){
-    ## Find the peaks in the histogram 
-    ## either of each channel or of the grand average.
-    par(mfrow=c(1,1))
-    plot(counts, type='l', xlab="Logisi (ms)", ylab="Frequency", xaxt="n")
-    axis(1, 0:length(counts), format(exp(breaks), sci=TRUE))   
-  }   
-  peaks = locpeaks(counts, span)
-  
-  ## Return some dummy values; these might be times of thresholds.
-  ## e.g. max1 might be the time of the first peak interval.
-  ## res <- list(max1=.1, max2=.4)
-  MAX = max(counts)
-  if (length(peaks)==0){
-    peak.max = -Inf
-  }else{
-    peak.max = max(counts[peaks])
-  }     
-  
-  if (span.max >= length(counts)){
-    span.max = length(counts) -1 
-  }
-  
-  ## Find the no. of peaks no more than 6, and
-  ## the golobal max is one of peaks.
-  while(length(peaks) >6 || MAX!=peak.max){
-    span= span + 1
-    peaks = locpeaks(counts, span)
-    if (length(peaks)==0){
-      peak.max = -Inf
-    }else{
-      peak.max = max(counts[peaks])
-    }    
-    if (span > span.max){
-      peaks = 0
-      break
-    }
-  }
-  
-  
-  if (length(peaks)!=1 || (length(peaks)==1&& peaks!=0)){
-    if (plot){  
-      points( peaks, counts[peaks], pch=19, col='blue')
-    }
-  }else{
-    res = list(max1=NA, max2=NA, max3=NA)
-    loc.min=0.02
-    return(list(Max=res,Locmin=loc.min))
-    
-  }     
-  
-  ## Find the local minimums between two successive peaks, and report the lowest.
-  ## If the peak finding algorithm gives some unlikely peaks between them,
-  ## then the peaks will be filtered out.
-  ## Rat = 0.08        # a threhold for filtering unreasonable peaks
-  
-  pos = -1             # flag
-  len = length(peaks)  # initial length
-  j = 1
-  mini = NULL
-  R= NULL
-  
-  while (pos==-1 || j < len){
-    len = length(peaks)
-    if (len >= 2){
-      loc.min = min(counts[peaks[j]:peaks[j+1]])
-      temp = c(peaks[j]:peaks[j+1])
-      pos = temp[counts[peaks[j]:peaks[j+1]]==loc.min]
-      pos = pos[length(pos)]           # last local min
-      pair = c(counts[peaks[j]], counts[peaks[j+1]])
-      smallest = c(j,j+1)[which.min(pair)]  
-      Diff = counts[peaks[smallest]] - counts[pos]
-      ## If the second peaks occurs after the first in the next 3 
-      ## breaks, then remove the smallest peak.
-      if (diff(peaks[j:(j+1)])<=3){
-        peaks = peaks[-smallest]
-        pos = -1
-        j=1
-      }else{ 
-        if (Diff==0){
-          peaks = peaks[-smallest]
-          pos = -1
-          j=1
-        }else{
-          ## define a ratio
-          ratio = Diff/(max(counts[peaks]) - counts[pos])
-          ## If the ratio is less than Rat, remove the smallest peak.
-          if (ratio < Rat){
-            peaks = peaks[-smallest]
-            pos = -1
-            j=1
-          }else{
-            if (ratio < 0 || ratio > 1){
-              res = list(max1=NA, max2=NA, max3=NA)
-              loc.min=0.02
-              return(list(Max=res,Locmin=loc.min))
-            }
-            mini = c(mini, pos)
-            R = c(R, ratio)
-            j = j+1
-          }
-        }  
-      } 
-      
-    }else{
-      lowest = -2
-      break
-    }  
-  }
-  if (length(mini)!=0){
-    M = min(counts[mini])
-    lowest = mini[counts[mini] == M][1]           # choose the first
-  }else{
-    lowest = -2
-  }
-  
-  if (lowest != -2){
-    if (plot){
-      points( lowest, counts[lowest], pch=19, col='red')
-    }
-    a1 = h[[channel]]$breaks[lowest]
-    a2 = h[[channel]]$breaks[lowest+1]
-    av.a = (a1+a2)/2
-    loc.min = exp(av.a)
-  }else{
-    loc.min = NA                     
-  }  
-  
-  
-  
-  b1 = h[[channel]]$breaks[peaks]
-  b2 = h[[channel]]$breaks[peaks+1]
-  av.b = (b1+b2)/2
-  isi.peaks = exp(av.b)                             # time in seconds   
-  res = list(max1=isi.peaks[1], max2=isi.peaks[2], max3=isi.peaks[3])
-  
-  return(list(Max=res,Locmin=loc.min))
-  
-}
-
-
-logisi.find.burst2<- function(spikes, par, debug=FALSE) {
+##Function for finding bursts, taken from sjemea
+logisi.find.burst<- function(spikes, par, debug=FALSE) {
   
   ## For one spike train, find the burst using log isi method.
   ## e.g.

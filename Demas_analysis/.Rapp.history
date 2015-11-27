@@ -1,0 +1,6 @@
+load("/Users/Ellese/Work/PhD/Bursting/Code/burstanalysis/Demas_analysis/demas.RData")
+ROC
+ls()
+demas
+load("/Users/Ellese/Work/PhD/Bursting/Code/new_sim_res.RData")
+ls()

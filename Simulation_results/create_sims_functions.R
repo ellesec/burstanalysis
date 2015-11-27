@@ -61,11 +61,6 @@ pois.burst.high<-function(rate, period, start) {
 pois.burst.noisy<-function(rate, period, start) {
   burst.times<-sort(runif(rpois(1,period*rate), min=start, max=start+period))
   no.bursts<-length(burst.times)
-  #burst.length<-NULL
-  #for (i in 1:no.bursts) {
-  #  mn<- round(burst.times[i], -2)/100+4
-  #  burst.length[i]<-rpois(1, mn)
-  #}
   burst.length<-rpois(no.bursts, mean.length)
   burst.pos<-sapply(burst.length, function(x) runif(x, min=-0.4, max=0.4))
   burst.pos.sorted<-lapply( burst.pos, sort)

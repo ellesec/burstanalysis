@@ -1,3 +1,4 @@
+#Implement RGS method
 RGS.method<-function(spike.train, thresh=0.01) {
   isi.list<-list()
   isi.list[[1]]<-data.frame(isi = c(spike.train[1], diff(spike.train)))

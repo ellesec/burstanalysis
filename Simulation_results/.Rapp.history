@@ -1,0 +1,227 @@
+load("/Users/Ellese/Work/PhD/Bursting/Code/burstanalysis/Simulation_results/comp_time_sims.RData")
+ls()
+comp.time.df
+pois.comp.time
+ls()
+pois.comp.time
+load("/Users/Ellese/Work/PhD/Bursting/Code/ROC_data_31July.RData")
+ls()
+demas
+library(sjemea)
+demas
+demas$s15$allb
+demas$s13$allb
+demas$s15
+demas$s15$allb
+b<-demas$s15$allb[[12]]
+data.frame(beg=b[,1], end=b[,2], len=b[,2]-b[,1]+1)
+demas$s15$allb[[12]]<-data.frame(beg=b[,1], end=b[,2], len=b[,2]-b[,1]+1)
+b<-demas$s15$allb[[24]]
+data.frame(beg=b[,1], end=b[,2], len=b[,2]-b[,1]+1)
+demas$s15$allb[[24]]<-data.frame(beg=b[,1], end=b[,2], len=b[,2]-b[,1]+1)
+b<-demas$s15$allb[[26]]
+b
+data.frame(beg=b[,1], end=b[,2], len=b[,2]-b[,1]+1)
+demas$s15$allb[[26]]<-data.frame(beg=b[,1], end=b[,2], len=b[,2]-b[,1]+1)
+save(file="demas.RData", demas)
+load("/Users/Ellese/Work/PhD/Bursting/Code/spike_simulations.RData")
+ls()
+spike.sims
+load("/Users/Ellese/Work/PhD/Bursting/Code/burst_tests.RData")
+ls()
+load("/Users/Ellese/Work/PhD/Bursting/Code/spike_sims.RData")
+ls()
+spike.sims
+a<-0.02#
+b<-0.2#
+c<--50#
+d<-2#
+V<--70#
+u<-b*V;#
+VV<-NULL#
+uu<-NULL#
+tau <- 0.25#
+tspan <- seq(from=0, to=30000, by=tau)#
+T1=100/10;#
+for (t in tspan) {#
+  if (t>T1) {#
+    I<-14#
+  } else {#
+    I<-0#
+  }#
+  V <- V + tau*(0.04*V^2+5*V+140-u+I)#
+  u <- u + tau*a*(b*V-u)#
+  I1<-c(I1, I)#
+  if (V > 30) {#
+    VV<-c(VV, 30)#
+    V <- c#
+    u <- u + d#
+  } else {#
+    VV<-c(VV, V)#
+  }#
+  uu<-c(uu, u)#
+}
+a<-0.02#
+b<-0.2#
+c<--65#
+d<-8#
+V<--70#
+u<-b*V;#
+VV<-NULL#
+uu<-NULL#
+tau <- 1#
+tspan <- seq(from=0, to=30000, by=tau)#
+T1=100/10;#
+for (t in tspan) {#
+  if (t>T1) {#
+    I<-14#
+  } else {#
+    I<-0#
+  }#
+  V <- V + tau*(0.04*V^2+5*V+140-u+I)#
+  u <- u + tau*a*(b*V-u)#
+  I1<-c(I1, I)#
+  if (V > 30) {#
+    VV<-c(VV, 30)#
+    V <- c#
+    u <- u + d#
+  } else {#
+    VV<-c(VV, V)#
+  }#
+  uu<-c(uu, u)#
+}
+a<-0.02#
+b<-0.2#
+c<--50#
+d<-2#
+V<--70#
+u<-b*V;#
+VV<-NULL#
+uu<-NULL#
+tau <- 0.1#
+tspan <- seq(from=0, to=6000, by=tau)#
+T1=22;#
+for (t in tspan) {#
+if (t>T1) {#
+  I<-15#
+} else {#
+  I<-0#
+}#
+V <- V + tau*(0.04*V^2+5*V+140-u+I)#
+u <- u + tau*a*(b*V-u)#
+I1<-c(I1, I)#
+if (V > 30) {#
+VV<-c(VV, 30)#
+V <- c#
+u <- u + d#
+} else {#
+  VV<-c(VV, V)#
+}#
+uu<-c(uu, u)#
+}
+I1<-NULL
+a<-0.02#
+b<-0.2#
+c<--50#
+d<-2#
+V<--70#
+u<-b*V;#
+VV<-NULL#
+uu<-NULL#
+tau <- 0.1#
+tspan <- seq(from=0, to=6000, by=tau)#
+T1=22;#
+for (t in tspan) {#
+if (t>T1) {#
+  I<-15#
+} else {#
+  I<-0#
+}#
+V <- V + tau*(0.04*V^2+5*V+140-u+I)#
+u <- u + tau*a*(b*V-u)#
+I1<-c(I1, I)#
+if (V > 30) {#
+VV<-c(VV, 30)#
+V <- c#
+u <- u + d#
+} else {#
+  VV<-c(VV, V)#
+}#
+uu<-c(uu, u)#
+}
+spike.indxs<-which(VV==30)#
+st<-spike.indxs*tau
+st
+st/100
+a<-0.02#
+b<-0.25#
+c<--55#
+d<-0.05#
+V<--64#
+u<-b*V;#
+VV<-NULL#
+uu<-NULL#
+tau <- 0.2#
+tspan <- seq(from=0, to=4000, by=tau)#
+I1<-c(rep(0, 1500/tau), rep(15, 1500/tau))#
+I2<-c(rep(I1, 10))#
+T1<-20#
+I<-c(rep(0, 201), rep(0.6, length(tspan)-201))#
+for (i in 1:length(tspan)) {#
+  V <- V + tau*(0.04*V^2+5*V+140-u+I[i])#
+  u <- u + tau*a*(b*V-u)#
+  if (V > 30) {#
+    VV<-c(VV, 30)#
+    V <- c#
+    u <- u + d#
+  } else {#
+    VV<-c(VV, V)#
+  }#
+  uu<-c(uu, u)#
+}
+spike.indxs<-which(VV==30)#
+st<-spike.indxs*tau
+st
+a<-0.02#
+b<-0.2#
+c<--65#
+d<-8#
+V<--70#
+u<-b*V;#
+VV<-NULL#
+uu<-NULL#
+tau <- 1#
+tspan <- seq(from=0, to=30000, by=tau)#
+T1=100/10;#
+for (t in tspan) {#
+  if (t>T1) {#
+    I<-14#
+  } else {#
+    I<-0#
+  }#
+  V <- V + tau*(0.04*V^2+5*V+140-u+I)#
+  u <- u + tau*a*(b*V-u)#
+  I1<-c(I1, I)#
+  if (V > 30) {#
+    VV<-c(VV, 30)#
+    V <- c#
+    u <- u + d#
+  } else {#
+    VV<-c(VV, V)#
+  }#
+  uu<-c(uu, u)#
+}#
+#
+spike.indxs<-which(VV==30)#
+st<-spike.indxs*tau
+st
+st/100
+plot(st/100)
+s
+s$spikes[[1]]<-st/100
+plot(s,1)
+plot(s,1, beg=0, end=100)
+plot(s,1, beg=0, end=20)
+load("/Users/Ellese/Work/PhD/Bursting/Code/burstanalysis/Demas_analysis/demas.RData")
+ls()
+ROC
