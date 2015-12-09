@@ -75,8 +75,7 @@ si.find.bursts.thresh<- function (spikes, debug = FALSE)
 
 
 
-
-si.find.burst.thresh2<-function(n, spikes, nspikes, threshold=NULL, min.si,
+si.find.burst.thresh2<-function(n, spikes, nspikes, mean.isi, threshold=NULL,
 debug=FALSE) {
     ## Find a burst starting at spike N.
     ## Include a better phase 1.
@@ -188,4 +187,3 @@ debug=FALSE) {
     res
     
 }
-
