@@ -12,9 +12,13 @@
 \usepackage{jneurosci}	
 \usepackage{url}
 \usepackage{tocloft}
+\usepackage{lineno}
+\linenumbers
+
 
 \cftpagenumbersoff{figure}
 \cftpagenumbersoff{table}
+
 
 \renewcommand{\baselinestretch}{1.66}
 \begin{document}
@@ -34,13 +38,13 @@ University of Oxford, Oxford, OX1 3QX, UK
 		\\$^*$Correspondence: Ellese Cotterill, University of Cambridge, Wilberforce Road, Cambridge,
 		CB3 0WA, UK. E-mail: ec526@cam.ac.uk.
 		\bigskip \\ \textbf{Conflict of Interest:} The authors declare no competing financial interests.
-		\bigskip \\ \textbf{Acknowledgements:} Experimental data collection was supported by the BBSRC (PC, OP, grant number BB/H008608/1). CWT was supported by a bursary from the Bridgwater Summer Undergraduate Research programme. EC was supported by a Wellcome Trust PhD Studentship and NIHR Cambridge Biomedical Research Centre Studentship. We thank Tokdar et al., Pasquale et al., Ko et al. and Gour\'{e}vitch et al. for code used in this study and Matthias Hennig, Timothy Shafer, Diana Hall and Catherine Cutts for comments on the manuscript. 
+		\bigskip \\ \textbf{Acknowledgements:} Experimental data collection was supported by the BBSRC (PC, OP, grant number BB/H008608/1). EC was supported by a Wellcome Trust PhD Studentship and NIHR Cambridge Biomedical Research Centre Studentship.  CWT was supported by a bursary from the Bridgwater Summer Undergraduate Research programme. We thank Tokdar et al., Pasquale et al., Ko et al. and Gour\'{e}vitch et al. for code used in this study and Matthias Hennig, Timothy Shafer, Diana Hall and Catherine Cutts for comments on the manuscript. 
 		%\bigskip \\ \textbf{Author Contributions:} EC, PC, OP and SJE designed research, EC and PC performed research, EC analysed data, EC, CWT and SJE contributed unpublished reagents/analytic tools, EC, PC and SJE wrote the paper.
 	\\ \begin{tabular}{m{8cm}l}\\\textbf{Number of Figures:} 8
 		 &  \textbf{Number of Tables:} 6
 		\\ \textbf{Abstract word count:} 235
 		 &  \textbf{Introduction word count:} 644
-		\\ \textbf{Discussion word count:} 1487
+		\\ \textbf{Discussion word count:} 1492
 		\end{tabular}
 	
 		
@@ -59,6 +63,7 @@ University of Oxford, Oxford, OX1 3QX, UK
 		\\  MEA & Microelectrode array
 		\\ \hline
 	\end{tabular}
+
 	\section*{ABSTRACT}
 	Accurate identification of bursting activity is an essential element in the characterisation of neuronal network activity. Despite this, no one technique for identifying bursts in spike trains has been widely adopted. Instead, many methods have been developed for the analysis of bursting activity, often on an ad hoc basis. Here, we provide an unbiased assessment of the effectiveness of eight of these methods at detecting bursts in a range of spike trains. We suggest a list of features that an ideal burst detection technique should possess, and use synthetic data to assess each method in regards to these properties. We further employ each of the methods to re-analyse microelectrode array (MEA) recordings from mouse retinal ganglion cells, and examine their coherence with bursts detected by a human observer. We show that several common burst detection techniques perform poorly at analysing spike trains with a variety of properties. We identify four promising burst detection techniques, which are then applied to MEA recordings of networks of human induced pluripotent stem cell-derived neurons, and used to describe the ontogeny of bursting activity in these networks over several months of development. We conclude that no current method can provide `perfect' burst detection results across a range of spike trains, however two burst detection techniques, the MaxInterval and logISI methods, outperform compared to others. We provide recommendations for the robust analysis of bursting activity in experimental recordings using current techniques.
 	\section*{SIGNIFICANCE STATEMENT}
@@ -162,10 +167,10 @@ Neuronal networks were grown from late stage neuronal precursors differentiated 
 	In cases when this distinction is not apparent, we recommend the PS and CMA methods as reasonably effective alternatives. Due to their tendency to overestimate burst durations in some circumstances, however, post hoc screening for outliers in terms of burst duration is advisable when using these methods. 
 	\\ \\The most robust approach to burst detection would be to apply a number of burst detectors to the data of interest, and compare the summary statistics, such as burst rate and duration, obtained from each of the methods. %The four methods mentioned above are easily implemented, with low computational times, and thus represent a good choice for this purpose. 
 	If the methods are in agreement, this provides confidence in the conclusions about the nature of bursting activity in the experimental data. Any major discrepancies between the methods can also be used to pinpoint areas where one or more burst detectors may be performing poorly, an issue that can be further investigated through visual inspection of the specific spike trains of interest. In general, we found that for spike trains that are easy to annotate using visual inspection, high performing burst detectors tend to be in close agreement. However, in spike trains for which two humans may not be able to agree on how to appropriately allocate spikes to bursts, it is likely that the methods will also disagree, and discretion is required.
-	\\ \\By employing this method of applying a number of burst detection techniques to recordings of networks of hiPSC-derived neurons over a range of developmental ages, we found that bursting arises in a majority of these networks around eight to ten weeks after differentiation.  This is a similar time frame to the findings from some previous studies of human stem cell-derived neuronal networks \cite{Heikkila2009,Kirwan2015}. Additionally, although we observed some increase in bursting activity over development, the rate of this increase was far lower than that which has been commonly seen in developing rodent neuronal networks \cite{Chiappalone2005,Charlesworth2015}.
+	\\ \\By employing this method of applying a number of burst detection techniques to recordings of networks of hiPSC-derived neurons over a range of developmental ages, we found that bursting arises in a majority of these networks around eight to ten weeks after differentiation.  This is a similar time frame to the findings from some previous studies of human stem cell-derived neuronal networks \cite{Heikkila2009,Kirwan2015}. Additionally, although we observed some increase in bursting activity over development, the rate of this increase was far lower than that which has been commonly seen in developing rodent neuronal networks \cite{Chiappalone2005,Charlesworth2015,Wagenaar2006}.
 	\\ \\One limitation of our study was the limited number of burst detectors examined. This was a deliberate choice, due to the extensive number of burst detectors available in the literature, which makes an exhaustive analysis of all methods impossible. Instead of providing a brief analysis of all burst detection methods, we restricted the scope of our study in order to provide a thorough assessment of what we saw as the most promising methods of burst detection, and to offer implementable recommendations to researchers working in this area. As an accompaniment, we also provide R code to implement all of the methods examined here.
-	\\ \\The results of our study were also influenced by how the `ground truth' bursts were chosen by visual inspection in the experimental RGC recordings, which is necessarily a subjective choice. However, the relatively high degree of coherence between our visually identified bursts and those detected by a number of burst detectors suggests that our definition of bursts was largely similar to that of other authors.
-	\\ \\There are several avenues through which this work could be extended. One area that we did not explore is the possibility of improving the results of burst detection by using a pre-processing step \cite{Martens2014}. Also, during our analysis, ideas arose about how the methods under review could be improved to enhance their performance. For example, for the CMA method, restricting the allowed values for $maxISI$ to within a biologically realistic range may reduce the method's tendency to overestimate bursting in non-bursting trains and remove the need for post hoc screening. However, to ensure a fair and unbiased assessment of different burst detectors, we restricted our study to the original implementation of the authors' methods. Future studies in this area could look at how altering the existing methods could improve their performance. 
+	\\ \\The results of our study were also influenced by how the `ground truth' bursts were chosen by visual inspection in the experimental RGC recordings, which is necessarily a subjective choice. However, the relatively high degree of coherence between our visually annotated bursts and those identified by a number of burst detectors suggests that our definition of bursts was largely similar to that of other authors.
+	\\ \\There are several avenues through which this work could be extended. One area that we did not explore is the possibility of improving the results of burst detection by using a pre-processing step \cite{Martens2014}. Also, during our analysis, ideas arose about how the methods under review could be improved to enhance their performance. For example, for the CMA method, restricting the allowed values for $maxISI$ to within a biologically realistic range may reduce the method's tendency to overestimate bursting in non-bursting spike trains and remove the need for post hoc screening. However, to ensure a fair and unbiased assessment of different burst detectors, we restricted our study to the original implementation of the authors' methods. Future studies in this area could look at how altering the existing methods could improve their performance. 
 	\\ \\ Another area for consideration relates to which features of bursts are the most informative to extract. In past studies of rodent neuronal networks, we have shown that the temporal structure of bursting activity, measured by the CV of IBI, can be an important feature in distinguishing different types of network activity \cite{Charlesworth2015}. However, in the human network recordings examined here, we found no strong relationship between the CV of IBI and developmental age. A greater understanding of which are the most distinguishing features of bursts in human neuronal networks may inform future approaches to burst detection in these networks. 
 	\pagebreak 
 		\bibliographystyle{jneurosci} 
@@ -205,19 +210,19 @@ Neuronal networks were grown from late stage neuronal precursors differentiated 
 			\centering
 			%\fbox{\includegraphics[width=170mm]{paper_ROC2.pdf}}
 			\fbox{\includegraphics[width=116mm]{RGC_ROC.pdf}}
-			\caption{ROC curves showing fraction of true positive (sensitivity) and false positive spikes (1-specificity) identified as being within bursts for a variety of input parameter values, for recordings of mouse retinal ganglion cells at \textbf{A} P9, \textbf{B} P11,  \textbf{C} P13 and \textbf{D} P15. The ground truth bursts for hour-long recordings of five randomly selected electrodes at each age were determined by visual inspection, examples of which are shown in Figure \ref{RGC_eg}, and the mean performance of each method over the five electrodes at each age is shown.}
+			\caption{ROC curves showing the fraction of true positive (sensitivity) and false positive spikes (1-specificity) identified as being within bursts for a variety of input parameter values, for recordings of mouse retinal ganglion cells at \textbf{A} P9, \textbf{B} P11,  \textbf{C} P13 and \textbf{D} P15. The ground truth bursts for hour-long recordings of five randomly selected electrodes at each age were determined by visual inspection, examples of which are shown in Figure \ref{RGC_eg}, and the mean performance of each burst detector over the five electrodes at each age is shown.}
 			\label{ROC}
 		\end{figure}  
 		\begin{figure}[h]
 			\centering
 			\fbox{\includegraphics[width=116mm]{RGC_analysis.pdf}}
-			\caption{Detailed analysis of mouse retinal ganglion cell recordings. \textbf{A} Fraction of spikes in bursts, and \textbf{B} Mean burst duration as found by each burst detector. Each electrode was counted as one data point in the box plots. The legend in A applies to both A and B. \textbf{C} Bursts detected by each burst detector over a 600$\,$s sample of a P15 spike train, and \textbf{D} 20$\,$s sample showing the first bursting episode from the same spike train. Horizontal bars in C and D show the bursts detected by each method. Blue bars above the spike train represent the bursts annotated by a human observer.  }
+			\caption{Detailed analysis of mouse retinal ganglion cell recordings. \textbf{A} Fraction of spikes in bursts, and \textbf{B} Mean burst duration found by each burst detector. Each electrode was counted as one data point in the box plots. The legend in A applies to both A and B. \textbf{C} Bursts detected by each burst detector over a 600$\,$s sample of a P15 spike train, and \textbf{D} 20$\,$s sample showing the first bursting episode from the same spike train. Horizontal bars in C and D show the bursts detected by each method. Blue bars above the spike train represent the bursts annotated by a human observer.  }
 			\label{RGC_results}
 		\end{figure}
 		\begin{figure}[h]
 			\centering
 			\fbox{\includegraphics[width=116mm]{hiPSN_analysis.pdf}}
-			\caption{Analysis of recordings of networks of human induced pluripotent stem cell-derived neurons. \textbf{A} Mean burst duration, \textbf{B} Bursts per minute, \textbf{C} Fraction of spikes in bursts, and \textbf{D} Coefficient of variation of interburst intervals (CV of IBI). Each data point in the box plots is the mean value across all spike trains from one recording.}
+			\caption{Analysis of recordings of networks of human induced pluripotent stem cell-derived neurons. \textbf{A} Mean burst duration, \textbf{B} Bursts per minute, \textbf{C} Fraction of spikes in bursts, and \textbf{D} Coefficient of variation of interburst intervals (CV of IBI). Each data point in the box plots is the mean value across all electrodes from one recording.}
 			\label{hiPSN_results}
 		\end{figure}
 		\begin{figure}[h]
@@ -276,9 +281,9 @@ Neuronal networks were grown from late stage neuronal precursors differentiated 
 					\\ \hline D5 & Non-bursting trains: The method should detect few spikes as being within bursts in spike trains containing no obvious bursting behaviour
 					\\\hline D6 & Non-stationary trains: The method should detect few spikes as being within bursts in spike trains with non-stationary firing rates that contain no obvious bursting behaviour 
 					\\ \hline D7 & Regular short bursts: The method should detect a high proportion of spikes in bursts in spike trains containing short well-separated bursts
-					\\\hline D8 & Regular long bursts: The method should detect a high proportion of spikes in bursts and accurate  number of bursts for spike trains containing long bursts with low within-burst firing rates
-					\\ \hline  D9 & High frequency bursts: The method should detect a high proportion of spikes in bursts and accurate number of bursts  for spike trains containing a large number of short bursts
-					\\\hline D10 & Noisy train: The method should classify a high number of within-burst spikes as bursting and a low number of interburst spikes as bursting, in spike trains containing both bursts and noise spikes
+					\\\hline D8 & Regular long bursts: The method should detect a high proportion of spikes in bursts and accurate  number of bursts in spike trains containing long bursts with low within-burst firing rates
+					\\ \hline  D9 & High frequency bursts: The method should detect a high proportion of spikes in bursts and accurate number of bursts in spike trains containing a large number of short bursts
+					\\\hline D10 & Noisy train: The method should classify a high number of within-burst spikes as bursting and a low number of interburst spikes as bursting in spike trains containing both bursts and noise spikes
 					\\ \hline
 				\end{tabular} \caption{Desirable properties for a burst detector.}
 				\label{des_prop}
