@@ -1,0 +1,285 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citeauthoryear{Bakkum  \bgroup et al.\egroup
+  }{2013}]{Bakkum2013}
+Bakkum DJ, Radivojevic M, Frey U, Franke F, Hierlemann A, Takahashi H (2013)
+\newblock {Parameters for burst detection.}
+\newblock {\em Front. Comput. Neurosci.}~7:\mbox{193}.
+
+\bibitem[\protect\citeauthoryear{Charlesworth  \bgroup et al.\egroup
+  }{2015}]{Charlesworth2015}
+Charlesworth P, Cotterill E, Morton A, Grant SG, Eglen SJ (2015)
+\newblock {Quantitative differences in developmental profiles of spontaneous
+  activity in cortical and hippocampal cultures}.
+\newblock {\em Neural Dev.}~10:\mbox{1--10}.
+
+\bibitem[\protect\citeauthoryear{Charlesworth  \bgroup et al.\egroup
+  }{2016}]{Charlesworth2016}
+Charlesworth P, Morton A, Eglen SJ, Komiyama NH, Grant SG (2016)
+\newblock {Canalization of genetic and pharmacological perturbations in
+  developing primary neuronal activity patterns}.
+\newblock {\em Neuropharmacology}~100:\mbox{47--55}.
+
+\bibitem[\protect\citeauthoryear{Chen  \bgroup et al.\egroup }{2009}]{Chen2009}
+Chen L, Deng Y, Luo W, Wang Z, Zeng S (2009)
+\newblock {Detection of bursts in neuronal spike trains by the mean inter-spike
+  interval method}.
+\newblock {\em Prog. Nat. Sci.}~19:\mbox{229--235}.
+
+\bibitem[\protect\citeauthoryear{Chiappalone  \bgroup et al.\egroup
+  }{2005}]{Chiappalone2005}
+Chiappalone M, Novellino A, Vajda I, Vato A, Martinoia S, van Pelt J (2005)
+\newblock {Burst detection algorithms for the analysis of spatio-temporal
+  patterns in cortical networks of neurons}.
+\newblock {\em Neurocomputing}~65-66:\mbox{653--662}.
+
+\bibitem[\protect\citeauthoryear{Cocatre-Zilgien and
+  Delcomyn}{1992}]{Cocatre-Zilgien1992}
+Cocatre-Zilgien J, Delcomyn F (1992)
+\newblock {Identification of bursts in spike trains}.
+\newblock {\em J. Neurosci. Methods}~41:\mbox{19--30}.
+
+\bibitem[\protect\citeauthoryear{Demas \bgroup et al.\egroup
+  }{2003}]{Demas2003}
+Demas J, Eglen SJ, Wong ROL (2003)
+\newblock {Developmental loss of synchronous spontaneous activity in the mouse
+  retina is independent of visual experience.}
+\newblock {\em J. Neurosci.}~23:\mbox{2851--2860}.
+
+\bibitem[\protect\citeauthoryear{Eglen  \bgroup et al.\egroup
+  }{2014}]{Eglen2014a}
+Eglen S, Weeks M, Jessop M, Simonotto J (2014)
+\newblock {A data repository and analysis framework for spontaneous neural
+  activity recordings in developing retina}.
+\newblock {\em Gigascience}~3:3.
+
+\bibitem[\protect\citeauthoryear{Eisenman  \bgroup et al.\egroup
+  }{2015}]{Eisenman2015}
+Eisenman LN, Emnett CM, Mohan J, Zorumski CF, Mennerick S (2015)
+\newblock {Quantification of bursting and synchrony in cultured hippocampal
+  neurons}.
+\newblock {\em J. Neurophysiol.}~114:\mbox{1059--1071}.
+
+\bibitem[\protect\citeauthoryear{Gilchrist  \bgroup et al.\egroup
+  }{2015}]{Gilchrist2015}
+Gilchrist KH, Lewis GF, Gay EA, Sellgren KL, Grego S (2015)
+\newblock {High-throughput cardiac safety evaluation and multi-parameter
+  arrhythmia profiling of cardiomyocytes using microelectrode arrays}.
+\newblock {\em Toxicol. Appl. Pharmacol.}~288:\mbox{249--257}.
+
+\bibitem[\protect\citeauthoryear{Gour\'{e}vitch and
+  Eggermont}{2007}]{Gourevitch2007}
+Gour\'{e}vitch B, Eggermont JJ (2007)
+\newblock {A nonparametric approach for detection of bursts in spike trains.}
+\newblock {\em J. Neurosci. Methods}~160:\mbox{349--58}.
+
+\bibitem[\protect\citeauthoryear{Heikkil\"{a}  \bgroup et al.\egroup
+  }{2009}]{Heikkila2009}
+Heikkil\"{a} TJ, Yl\"{a}-Outinen L, Tanskanen JMA, Lappalainen RS, Skottman H,
+  Suuronen R, Mikkonen JE, Hyttinen JAK, Narkilahti S (2009)
+\newblock {Human embryonic stem cell-derived neuronal cells form spontaneously
+  active neuronal networks in vitro.}
+\newblock {\em Exp. Neurol.}~218:\mbox{109--16}.
+
+\bibitem[\protect\citeauthoryear{Hennig  \bgroup et al.\egroup
+  }{2011}]{Hennig2011}
+Hennig MH, Grady J, van Coppenhagen J, Sernagor E (2011)
+\newblock {Age-dependent homeostatic plasticity of GABAergic signaling in
+  developing retinal networks.}
+\newblock {\em J. Neurosci.}~31:\mbox{12159--64}.
+
+\bibitem[\protect\citeauthoryear{Kaneoke and Vitek}{1996}]{Kaneoke1996}
+Kaneoke Y, Vitek J (1996)
+\newblock {Burst and oscillation as disparate neuronal properties}.
+\newblock {\em J. Neurosci. Methods}~68:\mbox{211--223}.
+
+\bibitem[\protect\citeauthoryear{Kapucu  \bgroup et al.\egroup
+  }{2012}]{Kapucu2012}
+Kapucu FE, Tanskanen JMA, Mikkonen JE, Yl\"{a}-Outinen L, Narkilahti S,
+  Hyttinen JAK (2012)
+\newblock {Burst analysis tool for developing neuronal networks exhibiting
+  highly varying action potential dynamics.}
+\newblock {\em Front. Comput. Neurosci.}~6:\mbox{38}.
+
+\bibitem[\protect\citeauthoryear{Kirwan  \bgroup et al.\egroup
+  }{2015}]{Kirwan2015}
+Kirwan P, Turner-Bridger B, Peter M, Momoh A, Arambepola D, Robinson HPC,
+  Livesey FJ (2015)
+\newblock {Development and function of human cerebral cortex neural networks
+  from pluripotent stem cells in vitro}.
+\newblock {\em Development}~142:\mbox{3178--3187}.
+
+\bibitem[\protect\citeauthoryear{Ko  \bgroup et al.\egroup }{2012}]{Ko2012}
+Ko D, Wilson CJ, Lobb CJ, Paladini CA (2012)
+\newblock {Detection of bursts and pauses in spike trains.}
+\newblock {\em J. Neurosci. Methods}~211:\mbox{145--58}.
+
+\bibitem[\protect\citeauthoryear{Leg\'{e}ndy and Salcman}{1985}]{Legendy1985}
+Leg\'{e}ndy CR, Salcman M (1985)
+\newblock {Bursts and recurrences of bursts in the spike trains of
+  spontaneously active striate cortex neurons.}
+\newblock {\em J. Neurophysiol.}~53:\mbox{926--39}.
+
+\bibitem[\protect\citeauthoryear{Lisman}{1997}]{Lisman1997}
+Lisman JE (1997)
+\newblock {Bursts as a unit of neural information: Making unreliable synapses
+  reliable}.
+\newblock {\em Trends Neurosci.}~20:\mbox{38--43}.
+
+\bibitem[\protect\citeauthoryear{Maccione  \bgroup et al.\egroup
+  }{2014}]{Maccione2014}
+Maccione A, Hennig MH, Gandolfo M, Muthmann O, van Coppenhagen J, Eglen SJ,
+  Berdondini L, Sernagor E (2014)
+\newblock {Following the ontogeny of retinal waves: pan-retinal recordings of
+  population dynamics in the neonatal mouse.}
+\newblock {\em J. Physiol.}~592:\mbox{1545--63}.
+
+\bibitem[\protect\citeauthoryear{Maeda \bgroup et al.\egroup
+  }{1995}]{Maeda1995}
+Maeda E, Robinson HP, Kawana A (1995)
+\newblock {The mechanisms of generation and propagation of synchronized
+  bursting in developing networks of cortical neurons.}
+\newblock {\em J. Neurosci.}~15:\mbox{6834--6845}.
+
+\bibitem[\protect\citeauthoryear{Martens  \bgroup et al.\egroup
+  }{2014}]{Martens2014}
+Martens MB, Chiappalone M, Schubert D, Tiesinga PHE (2014)
+\newblock {Separating burst from background spikes in multichannel neuronal
+  recordings using return map analysis}.
+\newblock {\em Int. J. Neural Syst.}~24:\mbox{1450012}.
+
+\bibitem[\protect\citeauthoryear{Mazzoni  \bgroup et al.\egroup
+  }{2007}]{Mazzoni2007}
+Mazzoni A, Broccard FD, Garcia-Perez E, Bonifazi P, Ruaro ME, Torre V (2007)
+\newblock {On the dynamics of the spontaneous activity in neuronal networks}.
+\newblock {\em PLoS One}~2:\mbox{e439}.
+
+\bibitem[\protect\citeauthoryear{Mukai \bgroup et al.\egroup
+  }{2003}]{Mukai2003}
+Mukai Y, Shiina T, Jimbo Y (2003)
+\newblock {Continuous monitoring of developmental activity changes in cultured
+  cortical networks}.
+\newblock {\em Electr. Eng. Japan}~145:\mbox{28--37}.
+
+\bibitem[\protect\citeauthoryear{{Nex Technologies}}{2014}]{NEmanual}
+{Nex Technologies} (2014)
+\newblock {NeuroExplorer Manual
+  (\url{http://www.neuroexplorer.com/downloads/NeuroExplorerManual.pdf})}~.
+
+\bibitem[\protect\citeauthoryear{Nicolas  \bgroup et al.\egroup
+  }{2014}]{Nicolas2014}
+Nicolas J, Hendriksen PJM, van Kleef RGDM, de~Groot A, Bovee TFH, Rietjens
+  IMCM, Westerink RHS (2014)
+\newblock {Detection of marine neurotoxins in food safety testing using a
+  multielectrode array}.
+\newblock {\em Mol. Nutr. Food Res.}~58:\mbox{2369--2378}.
+
+\bibitem[\protect\citeauthoryear{Odawara  \bgroup et al.\egroup
+  }{2016}]{Odawara2016856}
+Odawara A, Katoh H, Matsuda N, Suzuki I (2016)
+\newblock Induction of long-term potentiation and depression phenomena in human
+  induced pluripotent stem cell-derived cortical neurons.
+\newblock {\em Biochemical and Biophysical Research
+  Communications}~469:\mbox{856 -- 862}.
+
+\bibitem[\protect\citeauthoryear{Pasquale \bgroup et al.\egroup
+  }{2010}]{Pasquale2010}
+Pasquale V, Martinoia S, Chiappalone M (2010)
+\newblock {A self-adapting approach for the detection of bursts and network
+  bursts in neuronal cultures}.
+\newblock {\em J. Comput. Neurosci.}~29:\mbox{213--229}.
+
+\bibitem[\protect\citeauthoryear{Pimashkin  \bgroup et al.\egroup
+  }{2011}]{Pimashkin2011}
+Pimashkin A, Kastalskiy I, Simonov A, Koryagina E, Mukhina I, Kazantsev V
+  (2011)
+\newblock {Spiking signatures of spontaneous activity bursts in hippocampal
+  cultures}.
+\newblock {\em Front. Comput. Neurosci.}~5:\mbox{1--12}.
+
+\bibitem[\protect\citeauthoryear{Potter and DeMarse}{2001}]{Potter2001}
+Potter SM, DeMarse TB (2001)
+\newblock {A new approach to neural cell culture for long-term studies.}
+\newblock {\em J. Neurosci. Methods}~110:\mbox{17--24}.
+
+\bibitem[\protect\citeauthoryear{Selinger  \bgroup et al.\egroup
+  }{2007}]{Selinger2007}
+Selinger JV, Kulagina NV, O'Shaughnessy TJ, Ma W, Pancrazio JJ (2007)
+\newblock {Methods for characterizing interspike intervals and identifying
+  bursts in neuronal activity.}
+\newblock {\em J. Neurosci. Methods}~162:\mbox{64--71}.
+
+\bibitem[\protect\citeauthoryear{Shi \bgroup et al.\egroup }{2012}]{Shi2012}
+Shi Y, Kirwan P, Livesey FJ (2012)
+\newblock {Directed differentiation of human pluripotent stem cells to cerebral
+  cortex neurons and neural networks}.
+\newblock {\em Nat. Protoc.}~7:\mbox{1836--1846}.
+
+\bibitem[\protect\citeauthoryear{Tam}{2002}]{Tam2002}
+Tam D (2002)
+\newblock {An alternate burst analysis for detecting intra-burst firings based
+  on inter-burst periods}.
+\newblock {\em Neurocomputing}~46:\mbox{1155--1159}.
+
+\bibitem[\protect\citeauthoryear{Tokdar  \bgroup et al.\egroup
+  }{2010}]{Tokdar2010}
+Tokdar S, Xi P, Kelly RC, Kass RE (2010)
+\newblock {Detection of bursts in extracellular spike trains using hidden
+  semi-Markov point process models.}
+\newblock {\em J. Comput. Neurosci.}~29:\mbox{203--12}.
+
+\bibitem[\protect\citeauthoryear{Turnbull \bgroup et al.\egroup
+  }{2005}]{Turnbull2005}
+Turnbull L, Dian E, Gross G (2005)
+\newblock {The string method of burst identification in neuronal spike trains.}
+\newblock {\em J. Neurosci. Methods}~145:\mbox{23--35}.
+
+\bibitem[\protect\citeauthoryear{Valdivia  \bgroup et al.\egroup
+  }{2014}]{Valdivia2014}
+Valdivia P, Martin M, LeFew WR, Ross J, Houck KA, Shafer TJ (2014)
+\newblock {Multi-well microelectrode array recordings detect neuroactivity of
+  ToxCast compounds}.
+\newblock {\em Neurotoxicology}~44:\mbox{204--217}.
+
+\bibitem[\protect\citeauthoryear{van Elburg and van
+  Ooyen}{2004}]{VanElburg2004}
+van Elburg RA, van Ooyen A (2004)
+\newblock {A new measure for bursting}.
+\newblock {\em Neurocomputing}~58-60:\mbox{497--502}.
+
+\bibitem[\protect\citeauthoryear{Wagenaar \bgroup et al.\egroup
+  }{2005}]{Wagenaar2005}
+Wagenaar D, DeMarse T, Potter S (2005)
+\newblock Meabench: A toolset for multi-electrode data acquisition and on-line
+  analysis
+\newblock In {\em Conference Proceedings. 2nd International IEEE EMBS
+  Conference on Neural Engineering, 2005}, \mbox{pp. 518--521}.
+
+\bibitem[\protect\citeauthoryear{Wagenaar \bgroup et al.\egroup
+  }{2006}]{Wagenaar2006}
+Wagenaar DA, Pine J, Potter SM (2006)
+\newblock {An extremely rich repertoire of bursting patterns during the
+  development of cortical cultures.}
+\newblock {\em BMC Neurosci.}~7:\mbox{11}.
+
+\bibitem[\protect\citeauthoryear{Weihberger  \bgroup et al.\egroup
+  }{2013}]{Weihberger2013}
+Weihberger O, Okujeni S, Mikkonen JE, Egert U (2013)
+\newblock {Quantitative examination of stimulus-response relations in cortical
+  networks in vitro}.
+\newblock {\em J. Neurophysiol.}~109:\mbox{1764--1774}.
+
+\bibitem[\protect\citeauthoryear{Weyand \bgroup et al.\egroup
+  }{2001}]{Weyand2001}
+Weyand TG, Boudreaux M, Guido W (2001)
+\newblock {Burst and tonic response modes in thalamic neurons during sleep and
+  wakefulness.}
+\newblock {\em J. Neurophysiol.}~85:\mbox{1107--1118}.
+
+\bibitem[\protect\citeauthoryear{Xia \bgroup et al.\egroup }{2003}]{Xia2003}
+Xia Y, Gopal KV, Gross GW (2003)
+\newblock {Differential acute effects of fluoxetine on frontal and auditory
+  cortex networks in vitro}.
+\newblock {\em Brain Res.}~973:\mbox{151--160}.
+
+\end{thebibliography}

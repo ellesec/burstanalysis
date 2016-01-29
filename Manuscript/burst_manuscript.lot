@@ -1,0 +1,6 @@
+\contentsline {table}{\numberline {1}{\ignorespaces The eight burst detectors and the parameter values used for the implementation of each method on synthetic spike trains. *These parameters were left set to the default values provided in the 'burstHSMM' R package. }}{41}
+\contentsline {table}{\numberline {2}{\ignorespaces Desirable properties for a burst detector.}}{42}
+\contentsline {table}{\numberline {3}{\ignorespaces Models and parameter values used to generate synthetic spike trains for each desirable property. Each spike train was 300$\,$s duration, and the number, $N$, of simulated trains was 100, unless otherwise stated.}}{43}
+\contentsline {table}{\numberline {4}{\ignorespaces Summary of the performance of each method on desirable properties D1--D4.}}{44}
+\contentsline {table}{\numberline {5}{\ignorespaces The relative rank of the performance of each method on desirable properties D5--D10 (1=best, 8=worst).}}{45}
+\contentsline {table}{\numberline {6}{\ignorespaces Parameter values used for burst detection on human induced pluripotent stem cell-derived neuronal networks.}}{46}

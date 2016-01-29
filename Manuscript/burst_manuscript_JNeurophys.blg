@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: burst_manuscript_JNeurophys.aux
+The style file: jneurophysiol.bst
+"#" can't start a style-file command---line 10 of file jneurophysiol.bst
+ : 
+ : # Include it by adding \usepackage[noperiod]{jabbrv} to your preamble.
+(Error may have been on previous line)
+Database file #1: Bursting.bib.bib
+`journal' is a missing field, not a string, for entry NEmanual
+while executing---line 1374 of file jneurophysiol.bst
+You've used 42 entries,
+            2646 wiz_defined-function locations,
+            876 strings with 13748 characters,
+and the built_in function-call counts, 18186 in all, are:
+= -- 1571
+> -- 973
+< -- 0
++ -- 340
+- -- 340
+* -- 1960
+:= -- 3230
+add.period$ -- 124
+call.type$ -- 42
+change.case$ -- 338
+chr.to.int$ -- 42
+cite$ -- 42
+duplicate$ -- 599
+empty$ -- 1223
+format.name$ -- 388
+if$ -- 3330
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 42
+newline$ -- 213
+num.names$ -- 126
+pop$ -- 91
+preamble$ -- 1
+purify$ -- 380
+quote$ -- 0
+skip$ -- 477
+stack$ -- 0
+substring$ -- 1130
+swap$ -- 134
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 336
+warning$ -- 0
+while$ -- 159
+width$ -- 47
+write$ -- 507
+(There were 2 error messages)
