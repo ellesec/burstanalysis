@@ -17,7 +17,7 @@ You are free to use any of the data or resources in this repository.
 We do request however that if you use this material, you cite the
 above paper in any work that you publish.
 
-Code to implement the eight burst detection methods in the paper are located in Burst_detection_methods folder
+Code to implement the eight burst detection methods in the paper are located in [Burst_detection_methods](Burst_detection_methods).
 
 Data for mouse RGC analysis from Demas et al., 2003 are available from http://www.gigasciencejournal.com/content/3/1/3
 
