@@ -1,10 +1,17 @@
 # Burst-analysis
 
-This is the repository to accompany our submitted manuscript:
+This is the repository to accompany our article:
 
-  A comparison of computational methods for detecting bursts in neuronal spike trains and their application to human stem cell-derived     neuronal network
+    A comparison of computational methods for detecting bursts in
+    neuronal spike trains and their application to human stem
+    cell-derived neuronal network
 
- Ellese Cotterill, Paul Charlesworth, Christopher W. Thomas, Ole Paulsen, Stephen J. Eglen
+    Ellese Cotterill, Paul Charlesworth, Christopher W. Thomas, Ole
+    Paulsen, Stephen J. Eglen
+	
+	J Neurophysiol (2016) in press.
+
+[Journal web page](http://jn.physiology.org/content/early/2016/04/15/jn.00093.2016)
 
 You are free to use any of the data or resources in this repository.
 We do request however that if you use this material, you cite the
