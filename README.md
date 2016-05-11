@@ -21,4 +21,4 @@ Code to implement the eight burst detection methods in the paper are located in 
 
 Data for mouse RGC analysis from Demas et al., 2003 are available from http://www.gigasciencejournal.com/content/3/1/3
 
-MEA recordings from hiPSC-derived neuronal networks are being prepared for release. 
+MEA recordings from hiPSC-derived neuronal networks are located in [hiPSC_recordings](hiPSC_recordings)
