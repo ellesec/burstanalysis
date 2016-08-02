@@ -9,7 +9,8 @@ This is the repository to accompany our article:
     Ellese Cotterill, Paul Charlesworth, Christopher W. Thomas, Ole
     Paulsen, Stephen J. Eglen
 	
-	J Neurophysiol (2016) in press.
+    J. Neurophysiol. (2016).
+
 
 [Journal web page](http://jn.physiology.org/content/early/2016/04/15/jn.00093.2016)
 
