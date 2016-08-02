@@ -12,7 +12,7 @@ This is the repository to accompany our article:
     J. Neurophysiol. (2016).
 
 
-[Journal web page](http://jn.physiology.org/content/early/2016/04/15/jn.00093.2016)
+[Journal web page](http://jn.physiology.org/content/116/2/306)
 
 You are free to use any of the data or resources in this repository.
 We do request however that if you use this material, you cite the
