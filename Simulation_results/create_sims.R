@@ -1,6 +1,7 @@
 
 source("~/create_sims_functions.R")
 #No bursts
+#Spikes distributed according to a Poisson process, rate 0.5
 set.seed(123)
 period<-300
 rate<-0.5
@@ -8,15 +9,16 @@ start<-0
 end<-0
 pois.no.bursts<-list()
 for ( i in 1:50) {
-  spike.times<-sort(runif(rpois(1,period*rate), min=start, max=start+period))
-  isi<-diff(spike.times)
+  isi.samp<-rexp(n = 200, rate = rate)
+  isi<-isi.samp[which(cumsum(isi.samp)<period)]
+  spike.times<-cumsum(isi)
   rem.spikes<-which(isi<quantile(isi, 0.1))
   st<-NULL
   st$spks<-spike.times[-rem.spikes]
   pois.no.bursts[[i]]<-st
 }
 
-
+#Spikes with Gamma distributed ISIs
 set.seed(126)
 period<-300
 gamma.no.bursts<-list()
